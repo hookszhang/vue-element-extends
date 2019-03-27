@@ -10,6 +10,7 @@
 <script>
 import XEUtils from 'xe-utils'
 import GlobalEvents from './globalEvents.js'
+import lodash from 'lodash'
 
 export default {
   name: 'ElEditable',
@@ -886,8 +887,9 @@ export default {
       let property = column.property
       let validPromise = Promise.resolve()
       if (property && !XEUtils.isEmpty(this.editRules)) {
-        let rules = this.editRules[property]
-        let value = eval(`row.data.${property}`)
+        // get nested object with dot in key
+        let rules = lodash.get(this.editRules, property)
+        let value = lodash.get(row.data, property)
         if (rules) {
           for (let rIndex = 0; rIndex < rules.length; rIndex++) {
             validPromise = validPromise.then(rest => new Promise((resolve, reject) => {

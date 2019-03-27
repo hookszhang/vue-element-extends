@@ -11,6 +11,7 @@
         <router-link class="apimenu-link" :to="{name: 'EditableManual5'}" replace>行编辑+多表格</router-link>
         <router-link class="apimenu-link" :to="{name: 'EditableManual6'}" replace>行编辑+校验+树表格</router-link>
         <router-link class="apimenu-link" :to="{name: 'EditableManual7'}" replace>可配置的动态列</router-link>
+        <router-link class="apimenu-link" :to="{name: 'EditableManual8'}" replace>嵌套对象</router-link>
       </div>
       <div class="apimenu-row">
         <a class="apimenu-title">单击模式</a>
