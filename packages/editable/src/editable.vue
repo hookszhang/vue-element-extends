@@ -968,9 +968,11 @@ export default {
             .then(valid => this._triggerActive(row, column, cell, { type: 'edit' }))
             .catch(rule => this._toValidError(rule, row, column, cell))
         } else {
-          this._validRowRules('all', row)
-            .then(valid => this._triggerActive(row, column, cell, { type: 'edit' }))
-            .catch(({ rule, row, column, cell }) => this._toValidError(rule, row, column, cell))
+          // 激活 row 时不触发验证
+          this._triggerActive(row, column, cell, { type: 'edit' })
+          // this._validRowRules('all', row)
+          //   .then(valid => this._triggerActive(row, column, cell, { type: 'edit' }))
+          //   .catch(({ rule, row, column, cell }) => this._toValidError(rule, row, column, cell))
         }
         return true
       }
